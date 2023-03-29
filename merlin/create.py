@@ -59,8 +59,6 @@ class Create:
         self.create_directory_structure()
         self.create_default_files()
 
-        return None
-
     def create_directory_structure(self):
         for path in self.directories:
             safe = self.safe_path(path)
@@ -80,9 +78,8 @@ class Create:
 
             if not os.path.exists(safe):
                 shutil.copy2(file['content'], safe)
-                # print(f"Criando arquivos {safe}")
             else:
-                raise Exception('Arquivo já existe')
+                raise Exception('File already exists')
 
     def safe_path(self, path):
         return os.path.join(self.abspath, path)
