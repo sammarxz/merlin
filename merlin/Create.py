@@ -2,20 +2,16 @@ import errno
 import os
 import shutil
 
-from .config import config as cfg
-from .config import content, cwd, template
+from .config import config_folder, content_folder, template_folder
 
 
 class Create:
     config_path = 'merlin.yaml'
     directories = ['content', 'templates']
     default_files = [
-        {'path': 'content/index.md', 'content': '%s/%s' % (cwd, content)},
-        {
-            'path': 'templates/template.j2',
-            'content': '%s/%s' % (cwd, template),
-        },
-        {'path': 'merlin.yml', 'content': '%s/%s' % (cwd, cfg)},
+        {'path': 'content/index.md', 'content': content_folder},
+        {'path': 'templates/template.j2', 'content': template_folder},
+        {'path': 'merlin.yml', 'content': config_folder},
     ]
 
     def __init__(self, path):
