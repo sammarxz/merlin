@@ -35,8 +35,9 @@ profile = "black"
 line_length = 79
 
 [tool.taskipy.tasks]
+format = "blue . && isort ."
 lint = "blue --check --diff . && isort --check --diff ."
 docs = "mkdocs serve"
-pre_test = "task lint"
+pre_test = "task format && task lint"
 test = "pytest -s -x --cov=merlin -v"
 post_test = "coverage html"

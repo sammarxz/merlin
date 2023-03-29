@@ -1,0 +1,62 @@
+# ----------------------------------------------------------------------------- 
+# Merlin config
+# ----------------------------------------------------------------------------- 
+
+merlin: 
+    # -------------------------------------------------------------------------
+    # General config
+    # -------------------------------------------------------------------------
+    # Template directory relative to your project root
+    templates_dir: templates
+
+    # Default template to load if no template is specified for a page
+    default_template: template.j2
+
+    # Default output file extension. Note this can be overwritten in the content
+    # by specifying 'output_file_extension' in the 'meta' area
+    output_file_extension: html
+
+    # Supported data formats. Ensure a parser is registered for each type.
+    # More information about parsers can be found in the link at the top of the file.
+    data_formats: ['yaml', 'yml', 'json', 'js', 'md', 'markdown']
+
+    # Ignore hidden files, and files starting with underscores
+    ignore: ['.','_']
+
+    # -------------------------------------------------------------------------
+    # Command line flags 
+    # -------------------------------------------------------------------------
+    # Prints all the internal plumbing output to stdout
+    verbose: false
+
+    # Always force all pages to be rendered
+    force: false
+
+    # Run without the cache (useful for developing custom page classes, to prevent them
+    # from being cached each run).
+    nocache: false
+
+    # -------------------------------------------------------------------------
+    # Geeky stuff
+    # -------------------------------------------------------------------------
+    # The location of the template cache zip file. 
+    # Ensure the var path exists and is writeable by the user
+    build_cache_file: var/build.cache
+    compiled_templates_file: var/jinja
+    compiled_templates_log: var/jinja.log
+
+
+# ----------------------------------------------------------------------------- 
+# Site variables
+# ----------------------------------------------------------------------------- 
+# Your website's variables, available in your templates by calling
+# {{ site.paths.css }} for instance.
+site: 
+    paths: 
+        css: assets/css
+        js: assets/js
+        assets: assets
+        images: assets/images
+        webroot: www
+        app: app
+        content: content
