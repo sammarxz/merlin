@@ -2,13 +2,8 @@ import errno
 import os
 import shutil
 
-DEFAULT_PATH = 'defaults'
-
-cwd = os.path.dirname(os.path.abspath(__file__))
-
-content = f'{DEFAULT_PATH}/index.md'
-template = f'{DEFAULT_PATH}/template.j2'
-config = f'{DEFAULT_PATH}/merlin.yml'
+from .config import config as cfg
+from .config import content, cwd, template
 
 
 class Create:
@@ -20,7 +15,7 @@ class Create:
             'path': 'templates/template.j2',
             'content': '%s/%s' % (cwd, template),
         },
-        {'path': 'merlin.yml', 'content': '%s/%s' % (cwd, config)},
+        {'path': 'merlin.yml', 'content': '%s/%s' % (cwd, cfg)},
     ]
 
     def __init__(self, path):
