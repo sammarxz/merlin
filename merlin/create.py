@@ -6,6 +6,44 @@ from .config import config_folder, content_folder, template_folder
 
 
 class Create:
+    """
+    Class responsible for creating the directory and default file structure
+    for a new Merlin project.
+
+    Attributes:
+    ----------
+    config_path : str
+        The path to the 'merlin.yaml' configuration file.
+    directories : list
+        The list of directory names to be created within the project folder.
+    default_files : list
+        The list of dictionaries containing information about the default
+        files to be created.
+        Each dictionary should have the keys 'path' and 'content',
+        corresponding to the path to the file and the content of
+        the file, respectively.
+
+    Methods:
+    --------
+    __init__(self, path):
+        Initializes the `Create` class with the path to the project to be
+        created. Creates the directory structure and default files.
+
+    create_directory_structure(self):
+        Creates the directory structure for the project.
+
+    ensure_path_exists(self, path):
+        Checks if the specified path exists. If it does not exist,
+        creates the directory.
+
+    create_default_files(self):
+        Creates the default files for the project.
+
+    safe_path(self, path):
+        Returns the absolute path to the specified directory/file,
+        avoiding invalid path errors.
+    """
+
     config_path = 'merlin.yaml'
     directories = ['content', 'templates']
     default_files = [

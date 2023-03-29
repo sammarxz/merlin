@@ -3,7 +3,7 @@ import shutil
 
 import pytest
 
-from merlin.Create import Create
+from merlin.create import Create
 
 
 def test_create_should_generate_a_new_merlin_static_site():
